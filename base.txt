@@ -166,7 +166,7 @@ Background image section with call-to-action buttons.
         <span class="section-tag">[tag]</span>
         <h2 class="section-title">[title]</h2>
         <p class="section-subtitle">[subtitle]</p>
-        <div class="flex-center mt-2">
+        <div class="flex-center mt-8">
             <a href="[url]" class="cta-btn primary"><i data-lucide="[icon]"></i> [label]</a>
             <a href="[url]" class="cta-btn secondary"><i data-lucide="[icon]"></i> [label]</a>
         </div>

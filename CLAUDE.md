@@ -99,10 +99,13 @@ Stone color scheme (H=60 warm neutral) is the default. All sizing, spacing, and 
 
 ```bash
 # Local dev server
-python -m http.server 8080
-# or
-npx serve -p 8080
+php -S localhost:8000
 ```
+
+## Preferences
+
+- **Never suggest Python** - this is a PHP shop
+- Use `php -S`, `artisan serve`, or nginx + php-fpm for local servers
 
 ## Relative Path Strategy
 
