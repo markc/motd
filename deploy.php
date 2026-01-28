@@ -1,7 +1,7 @@
 <?php
 // GitHub Webhook Deploy Script
 // Configure webhook at: GitHub repo -> Settings -> Webhooks -> Add webhook
-// Payload URL: https://renta.net/deploy.php
+// Payload URL: https://motd.com/deploy.php
 // Content type: application/json
 // Secret: (copy .env.example to .env and set your secret)
 
@@ -31,7 +31,7 @@ if ($event !== 'push') {
 
 // Run git pull
 chdir(__DIR__);
-putenv('HOME=/srv/renta.net');
+putenv('HOME=/srv/motd.com');
 $output = [];
 $return = 0;
 exec('git pull 2>&1', $output, $return);
@@ -40,6 +40,6 @@ $log = date('Y-m-d H:i:s') . " - Deploy triggered\n";
 $log .= implode("\n", $output) . "\n";
 $log .= "Exit code: $return\n\n";
 
-file_put_contents('/tmp/rentanet-deploy.log', $log, FILE_APPEND);
+file_put_contents('/tmp/motd-deploy.log', $log, FILE_APPEND);
 
 echo $return === 0 ? 'OK' : 'FAILED';
