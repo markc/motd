@@ -153,33 +153,45 @@
     <!-- Token Authentication -->
     <section class="bg-image-section">
         <div class="section-header">
-            <span class="section-tag">Paid Feature</span>
-            <h2 class="section-title">Token Authentication</h2>
-            <p class="section-subtitle">Your personal AI address</p>
+            <span class="section-tag">Security</span>
+            <h2 class="section-title">Elegant Authentication</h2>
+            <p class="section-subtitle">Login credentials built into the email address itself</p>
         </div>
     </section>
 
     <section class="content-section">
-        <div class="services-grid">
+        <div class="services-grid services-grid-2col">
             <div class="service-card reveal">
-                <span class="service-icon"><i data-lucide="key" class="lucide-icon"></i></span>
-                <h3>Your Token Address</h3>
-                <p style="color: var(--fg-secondary);">Paid users get a personal address like <strong>7086-3612@motd.com</strong>. The first part (7086) is your permanent user ID. The second (3612) is your rotatable PIN.</p>
+                <span class="service-icon"><i data-lucide="at-sign" class="lucide-icon"></i></span>
+                <h3>The Problem with Email Auth</h3>
+                <p style="color: var(--fg-secondary);">Websites have login forms. APIs have auth headers. But email? No built-in authentication. Other services force awkward workarounds—special headers users can't set, body prefixes that clutter messages, or trusting easily-spoofed From addresses.</p>
             </div>
             <div class="service-card reveal">
+                <span class="service-icon"><i data-lucide="lightbulb" class="lucide-icon"></i></span>
+                <h3>Our Solution: Token Addresses</h3>
+                <p style="color: var(--fg-secondary);">Your address <strong>7086-3612@motd.com</strong> contains your credentials. The first part (7086) is your permanent user ID—like a username. The second part (3612) is your rotatable PIN—like a password. Authentication is invisible; you just send to an address.</p>
+            </div>
+        </div>
+        <div class="services-grid" style="margin-top: var(--space-6);">
+            <div class="service-card reveal">
                 <span class="service-icon"><i data-lucide="shield-check" class="lucide-icon"></i></span>
-                <h3>Double Security</h3>
-                <p style="color: var(--fg-secondary);">Your token only works when sent from your registered email address. Even if someone learns your token, they can't use it without access to your email.</p>
+                <h3>Two-Factor by Design</h3>
+                <p style="color: var(--fg-secondary);">Your token only works when sent from your registered email. Even if someone sees your address, they can't use it without also controlling your email account. Two factors, zero friction.</p>
             </div>
             <div class="service-card reveal">
                 <span class="service-icon"><i data-lucide="refresh-cw" class="lucide-icon"></i></span>
-                <h3>Rotate Anytime</h3>
-                <p style="color: var(--fg-secondary);">Change your PIN whenever you want. After rotation, both old and new PINs work during a grace period so nothing breaks.</p>
+                <h3>Rotate Your PIN</h3>
+                <p style="color: var(--fg-secondary);">Change your PIN anytime—your user ID stays the same. During the grace period, both old and new PINs work so nothing breaks. Like changing a password, but simpler.</p>
+            </div>
+            <div class="service-card reveal">
+                <span class="service-icon"><i data-lucide="mail-check" class="lucide-icon"></i></span>
+                <h3>Works Everywhere</h3>
+                <p style="color: var(--fg-secondary);">Any email client, any device, any script that can send mail. No special configuration, no SDK, no headers to set. If you can send email, you can authenticate.</p>
             </div>
             <div class="service-card reveal">
                 <span class="service-icon"><i data-lucide="trash-2" class="lucide-icon"></i></span>
                 <h3>Zero Retention</h3>
-                <p style="color: var(--fg-secondary);">We process your message and send the response. Nothing is stored on our servers. Your email client is your archive—nothing here to hack or subpoena.</p>
+                <p style="color: var(--fg-secondary);">We process your message and send the response. Nothing stored. Your email client is your archive—nothing on our servers to hack, subpoena, or breach.</p>
             </div>
         </div>
     </section>
