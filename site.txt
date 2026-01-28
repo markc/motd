@@ -1,0 +1,193 @@
+# MOTD Site Configuration
+
+This file defines site-specific customizations for the base framework.
+Use with base.txt (structure) and ai.txt (content) to generate the complete site.
+
+## Brand Identity
+
+```
+Brand Name: MOTD
+Logo HTML: <span>MOTD</span>
+Tagline: Message Of The Day
+Description: AI assistant via email - no apps, no accounts, just email
+```
+
+## Theme Configuration
+
+```
+Theme Storage Key: motd-theme
+Default Theme: dark
+Default Scheme: stone
+```
+
+## Color Palette
+
+Stone (H=60 warm neutral) is the default scheme.
+See site.css for full color definitions in OKLCH format.
+
+### Dark Mode (Default)
+```css
+--bg-primary:   oklch(12% 0.01 60)
+--bg-secondary: oklch(16% 0.012 60)
+--bg-tertiary:  oklch(22% 0.015 60)
+--fg-primary:   oklch(95% 0.01 60)
+--fg-secondary: oklch(75% 0.015 60)
+--accent:       oklch(80% 0.03 60)
+--accent-hover: oklch(90% 0.02 60)
+```
+
+### Light Mode
+```css
+--bg-primary:   oklch(98% 0.005 60)
+--bg-secondary: oklch(96% 0.008 60)
+--bg-tertiary:  oklch(92% 0.012 60)
+--fg-primary:   oklch(25% 0.02 60)
+--fg-secondary: oklch(45% 0.02 60)
+--accent:       oklch(45% 0.05 60)
+--accent-hover: oklch(35% 0.06 60)
+```
+
+## Typography
+
+```
+Primary Font: Inter
+Heading Font: Quicksand
+Google Fonts URL: https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap
+```
+
+## Assets
+
+```
+Hero Background: /Server_Room_Dark.webp
+Favicon: /favicon.ico
+JavaScript: /base.js
+Base CSS: /base.css
+Site CSS: /site.css
+```
+
+## Navigation
+
+```yaml
+pages:
+  - label: Home
+    href: /
+  - label: How It Works
+    href: /how-it-works/
+  - label: Pricing
+    href: /pricing/
+```
+
+## Footer Links
+
+### Quick Links
+```yaml
+- label: How It Works
+  href: /how-it-works/
+- label: Pricing
+  href: /pricing/
+```
+
+### Resources (External)
+```yaml
+- label: Webmail
+  href: https://mail.motd.com
+  external: true
+- label: Privacy Policy
+  href: /privacy/
+```
+
+## Contact Information
+
+```yaml
+email:
+  display: "ai@motd.com"
+  href: "mailto:ai@motd.com"
+  description: "Try it free - 1 message per day"
+```
+
+## Page Configurations
+
+### Homepage (index.html)
+
+```yaml
+meta:
+  title: "MOTD | Message Of The Day - AI via Email"
+  description: "AI assistant via email. No apps, no accounts, no tracking. Just send an email to ai@motd.com and get intelligent responses."
+
+hero:
+  badge_emoji: ""
+  badge_text: "AI via Email"
+  headline_gradient: "AI Assistant"
+  headline_plain: "In Your Inbox"
+  subheadline: "No apps. No accounts. No tracking. Just email."
+  cta_primary:
+    label: "Try Free"
+    href: "mailto:ai@motd.com?subject=Hello&body=Hi, I'd like to try MOTD!"
+    icon: "mail"
+  cta_secondary:
+    label: "How It Works"
+    href: "/how-it-works/"
+```
+
+### How It Works Page (/how-it-works/index.html)
+
+```yaml
+meta:
+  title: "How It Works | MOTD"
+  description: "Send an email, get an AI response. Simple authentication via token addresses. Conversation history remembered."
+
+hero:
+  tag: "Simple by Design"
+  title: "How It Works"
+  subtitle: "Email in, AI out. That's it."
+```
+
+### Pricing Page (/pricing/index.html)
+
+```yaml
+meta:
+  title: "Pricing | MOTD"
+  description: "Free tier with 1 message per day. Pro tier with unlimited messages and full conversation history."
+
+hero:
+  tag: "Simple Pricing"
+  title: "Choose Your Plan"
+  subtitle: "Start free. Upgrade when you need more."
+```
+
+## JavaScript Configuration
+
+```javascript
+const SITE_CONFIG = {
+    themeStorageKey: "motd-theme",
+    particleCount: 15,
+    scrollThreshold: 50
+};
+```
+
+## Icon Choices
+
+Primary icons used throughout the site (Lucide):
+```
+How It Works: mail, send, message-circle, inbox
+Features: shield, lock, eye-off, zap
+Pricing: check, star, sparkles
+Actions: mail, arrow-right
+```
+
+## Section Backgrounds
+
+```yaml
+hero_sections:
+  - image: /Server_Room_Dark.webp
+    overlay: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5))
+
+bg_image_sections:
+  - same background with stronger overlay for readability
+```
+
+## Copyright Text
+
+```
+© {year} MOTD. Message Of The Day.
+```

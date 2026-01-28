@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*~
+.idea/
+.vscode/
+.env
+phpinfo.php
+public/
+node_modules/
+package-lock.json
+screenshot.js
+screenshot.png
+CLAUDE_CODE_PROMPT.md

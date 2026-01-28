@@ -1,0 +1,116 @@
+RustSpam: A Modern Email Spam Filter
+=====================================
+
+Executive Summary
+-----------------
+
+Email spam remains a persistent problem for businesses and individuals worldwide. The software tools that filter spam from legitimate email are aging, unmaintained, and increasingly inadequate for modern threats. We propose developing RustSpam, a new open-source spam filter built with modern technology that combines proven statistical methods with optional artificial intelligence integration.
+
+
+The Problem
+-----------
+
+Every business with email faces spam. The current solutions fall into two categories:
+
+Heavy enterprise systems like Rspamd require significant server resources and are overkill for small to medium deployments. They work well but consume memory and CPU that could be used for other purposes.
+
+Lightweight statistical filters like Spamprobe, bogofilter, and dspam were excellent solutions developed in the early 2000s. However, their original developers have moved on. Spamprobe, arguably the best of these, is no longer maintained and does not run on modern lightweight server platforms. Bogofilter is still maintained but requires thousands of example messages before it becomes effective. Dspam was abandoned years ago.
+
+This leaves a gap in the market: there is no modern, lightweight, well-maintained spam filter suitable for small hosting providers, home servers, or resource-constrained environments.
+
+
+The Opportunity
+---------------
+
+The codebases and algorithms from these older projects remain available for study. Twenty years of research into statistical spam filtering has produced proven techniques that work. The opportunity exists to combine the best ideas from all these projects into a single, modern implementation.
+
+Additionally, recent advances in artificial intelligence offer a new capability: messages that the statistical filter finds ambiguous could optionally be analysed by an AI system for a second opinion. This hybrid approach would combine the speed and efficiency of statistical filtering with the comprehension capabilities of modern AI.
+
+
+Proposed Solution
+-----------------
+
+RustSpam would be a new spam filter written in Rust, a modern programming language known for performance, safety, and reliability. Rust programs compile to efficient standalone executables that run on any platform, including lightweight systems where older tools fail to build.
+
+The project would incorporate proven algorithms from successful predecessors:
+
+From Spamprobe: the statistical approach that works well even with minimal training data, making it effective immediately rather than requiring weeks of learning.
+
+From bogofilter: mature tokenisation techniques that break emails into meaningful components for analysis.
+
+From dspam: noise reduction methods that improve accuracy by focusing on significant patterns.
+
+The result would be a single program that:
+
+Works immediately with minimal setup, improving over time as it learns from user feedback.
+
+Runs efficiently on any server, from powerful cloud instances to small home routers.
+
+Integrates easily with all common email server software.
+
+Optionally consults AI for difficult decisions, learning from those consultations to improve its own judgement.
+
+Operates as an always-running service for high-volume environments, or as a simple command-line tool for smaller deployments.
+
+
+Why Open Source
+---------------
+
+Releasing RustSpam as open-source software under a permissive licence serves several purposes:
+
+Community contributions improve the software without additional development cost. Security researchers can audit the code, building trust. Businesses can adopt it without licensing concerns, driving widespread use.
+
+The funding organisation gains recognition as a contributor to internet infrastructure. This goodwill has tangible value for companies in the hosting, security, or email industries.
+
+
+Development Approach
+--------------------
+
+The project would proceed in phases:
+
+Phase 1: Core statistical engine with command-line interface. This delivers a working spam filter that can replace existing tools. Estimated development time with AI-assisted coding: four to six weeks.
+
+Phase 2: Integration modes for popular email servers including Postfix, Dovecot, and Sendmail. This enables easy adoption. Estimated time: two to four weeks.
+
+Phase 3: High-performance service mode for demanding environments. This enables deployment at scale. Estimated time: two to four weeks.
+
+Phase 4: Optional AI integration for handling ambiguous messages. This provides the innovative edge over existing solutions. Estimated time: two to four weeks.
+
+Total estimated timeline: three to five months to a production-ready release.
+
+
+Resource Requirements
+---------------------
+
+Development would be conducted using AI-assisted coding tools, significantly reducing the programming hours required. The primary costs are:
+
+Developer time for architecture decisions, testing, and integration work.
+
+Server resources for testing across different email platforms.
+
+Documentation and community management for the open-source release.
+
+A modest budget would support initial development, with ongoing maintenance funded through community contributions, commercial support contracts, or sponsorship from companies benefiting from the software.
+
+
+Market Positioning
+------------------
+
+RustSpam would be positioned as the modern successor to Spamprobe and similar tools. The name suggests making spam obsolete and irrelevant, rusting away to nothing.
+
+Target users include small hosting providers, system administrators managing email for small organisations, privacy-conscious individuals running personal mail servers, and developers needing spam filtering in resource-constrained environments such as containers or embedded systems.
+
+
+Conclusion
+----------
+
+The spam filtering landscape has stagnated. Proven techniques exist but are locked in unmaintained codebases written in outdated languages. Modern AI capabilities remain untapped for this application.
+
+RustSpam would address this gap with a clean, modern implementation that combines the best statistical methods with optional AI enhancement. As open-source software, it would benefit the entire internet community while providing recognition and goodwill to its sponsors.
+
+We recommend proceeding with Phase 1 development to validate the approach and produce a working prototype.
+
+
+Prepared by: RentaNet
+Contact: admin@renta.net
+Date: January 2026

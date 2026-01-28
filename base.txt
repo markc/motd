@@ -1,0 +1,350 @@
+# Base Site Structure Specification
+
+This document describes the generic HTML/CSS/JS structure for building static sites.
+Use this with site.txt (customizations) and ai.txt (content) to generate a complete site.
+
+## File Structure
+
+```
+/
+├── index.html          # Homepage
+├── base.css            # Generic framework styles
+├── site.css            # Site-specific theme/colors
+├── base.js             # Generic framework JavaScript
+├── site.js             # Site-specific JavaScript (optional)
+├── favicon.ico         # Site favicon
+├── [background].webp   # Hero/section background image
+├── ai.txt              # Content for AI agents
+├── services/
+│   └── index.html      # Services subpage
+├── pricing/
+│   └── index.html      # Pricing subpage
+└── [other]/
+    └── index.html      # Additional subpages as needed
+```
+
+## HTML Document Structure
+
+### Head Section
+
+Every page includes:
+1. UTF-8 charset and viewport meta
+2. Description meta tag (page-specific)
+3. Title tag (page-specific)
+4. Favicon link
+5. Google Fonts preconnect and stylesheet (fonts specified in site.txt)
+6. base.css stylesheet link
+7. site.css stylesheet link
+8. Lucide icons CDN script
+9. Inline theme initialization script (prevents flash on load)
+
+### Theme Init Script (in head)
+
+```javascript
+(function() {
+    const stored = localStorage.getItem("[theme-key]");
+    if (stored) {
+        document.documentElement.className = stored;
+    } else {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.className = prefersDark ? "dark" : "light";
+    }
+})();
+```
+
+Replace `[theme-key]` with site-specific localStorage key from site.txt.
+
+### Body Structure
+
+```
+body
+├── div.particles#particles       # Floating particle effect container
+├── nav#navbar                    # Fixed navigation
+│   ├── a.logo                    # Logo with accent span
+│   └── div.nav-right
+│       ├── ul.nav-links          # Navigation links
+│       ├── button.theme-toggle   # Dark/light mode toggle
+│       └── div.menu-toggle       # Mobile hamburger menu
+├── section.hero.hero-bg          # Homepage hero (or section.hero.hero-bg.page-hero for subpages)
+├── [content sections...]         # Alternating content-section and bg-image-section
+├── footer.footer-main            # Site footer
+├── script (base.js)              # Generic JavaScript
+└── script (site.js)              # Site-specific JavaScript (optional)
+```
+
+## Section Types
+
+### 1. Hero Section (Homepage)
+
+Full viewport height with background image overlay.
+
+```html
+<section class="hero hero-bg">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="flag">[emoji]</span>
+            <span>[tagline]</span>
+        </div>
+        <h1>
+            <span class="gradient-text">[headline part 1]</span><br>
+            [headline part 2]
+        </h1>
+        <p>[description paragraph]</p>
+        <div class="cta-group">
+            <a href="[url]" class="cta-btn primary"><i data-lucide="[icon]"></i> [label]</a>
+            <a href="[url]" class="cta-btn secondary">[label] →</a>
+        </div>
+    </div>
+</section>
+```
+
+### 2. Page Hero (Subpages)
+
+Shorter hero for subpages (50vh instead of 100vh).
+
+```html
+<section class="hero hero-bg page-hero">
+    <div class="hero-content">
+        <div class="section-header">
+            <span class="section-tag">[tag]</span>
+            <h1 class="section-title hero-title">[page title]</h1>
+            <p class="section-subtitle hero-subtitle">[subtitle]</p>
+        </div>
+    </div>
+</section>
+```
+
+### 3. Content Section (with cards)
+
+Solid background section containing a grid of cards.
+
+```html
+<section class="content-section">
+    <div class="section-header mb-3">
+        <span class="section-tag">[tag]</span>
+        <h2 class="section-title">[title]</h2>
+        <p class="section-subtitle">[subtitle]</p>
+    </div>
+    <div class="services-grid">
+        <!-- 4 cards for 4-column layout, 3 cards with services-grid-3col -->
+        <div class="service-card reveal">
+            <span class="service-icon"><i data-lucide="[icon]" class="lucide-icon"></i></span>
+            <h3>[card title]</h3>
+            <ul>
+                <li>[feature 1]</li>
+                <li>[feature 2]</li>
+                <li>[feature 3]</li>
+                <li>[feature 4]</li>
+            </ul>
+        </div>
+        <!-- repeat for each card -->
+    </div>
+</section>
+```
+
+### 4. Background Image Section (Banner/Divider)
+
+Full-width section with background image, used as visual break between content sections.
+
+```html
+<section class="bg-image-section">
+    <div class="section-header">
+        <span class="section-tag">[tag]</span>
+        <h2 class="section-title">[title]</h2>
+        <p class="section-subtitle">[subtitle]</p>
+    </div>
+</section>
+```
+
+### 5. CTA Section
+
+Background image section with call-to-action buttons.
+
+```html
+<section class="bg-image-section">
+    <div class="section-header">
+        <span class="section-tag">[tag]</span>
+        <h2 class="section-title">[title]</h2>
+        <p class="section-subtitle">[subtitle]</p>
+        <div class="flex-center mt-2">
+            <a href="[url]" class="cta-btn primary"><i data-lucide="[icon]"></i> [label]</a>
+            <a href="[url]" class="cta-btn secondary"><i data-lucide="[icon]"></i> [label]</a>
+        </div>
+    </div>
+</section>
+```
+
+### 6. Pricing Tables Section
+
+For pricing pages with bulk pricing tables.
+
+```html
+<section class="content-section">
+    <div class="pricing-tables-grid">
+        <div class="bulk-table reveal">
+            <h4>[table title]</h4>
+            <div class="bulk-row">
+                <span><strong>[plan name]</strong> — [specs]</span>
+                <span>[price]</span>
+            </div>
+            <!-- repeat for each row -->
+        </div>
+        <!-- repeat for each table -->
+    </div>
+</section>
+```
+
+### 7. Server/Pricing Cards Section
+
+For detailed plan descriptions.
+
+```html
+<section class="content-section">
+    <div class="pricing-details-grid">
+        <div class="server-card reveal">
+            <h3><i data-lucide="[icon]" class="lucide-icon"></i> [plan name]</h3>
+            <p class="price">[price]</p>
+            <p class="card-description">[detailed description]</p>
+        </div>
+        <!-- repeat for each card -->
+    </div>
+</section>
+```
+
+## Navigation Structure
+
+```html
+<nav id="navbar">
+    <a href="/" class="logo">[Brand]<span>[ACCENT]</span></a>
+    <div class="nav-right">
+        <ul class="nav-links">
+            <li class="nav-indicator"><div class="nav-indicator-inner"></div></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/services/">Services</a></li>
+            <li><a href="/pricing/">Pricing</a></li>
+            <li><a href="/[other]/">[Other]</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle dark/light mode">
+            <!-- sun icon SVG -->
+            <!-- moon icon SVG -->
+        </button>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+```
+
+## Footer Structure
+
+```html
+<footer class="footer-main">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <div class="footer-brand">[Brand]<span>[ACCENT]</span></div>
+            <p>[tagline]</p>
+            <p class="abn">[business number if applicable]</p>
+        </div>
+        <div class="footer-col">
+            <h4><i data-lucide="phone" class="lucide-icon"></i> Contact</h4>
+            <div class="contact-line">
+                <i data-lucide="smartphone" class="lucide-icon"></i>
+                <a href="tel:[phone]">[phone display]</a>
+            </div>
+            <div class="contact-line">
+                <i data-lucide="mail" class="lucide-icon"></i>
+                <a href="mailto:[email]">[email]</a>
+            </div>
+            <div class="contact-line">
+                <i data-lucide="clock" class="lucide-icon"></i>
+                <span>[hours]</span>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4><i data-lucide="link" class="lucide-icon"></i> Quick Links</h4>
+            <a href="/services/">Services</a>
+            <a href="/pricing/">Pricing</a>
+            <a href="/[other]/">[Other]</a>
+        </div>
+        <div class="footer-col">
+            <h4><i data-lucide="globe" class="lucide-icon"></i> Resources</h4>
+            <a href="[url]" target="_blank">[External Link 1]</a>
+            <a href="[url]" target="_blank">[External Link 2]</a>
+            <a href="[url]" target="_blank">Privacy Policy</a>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        © <span id="year"></span> [Company]. [copyright text]
+    </div>
+</footer>
+```
+
+## Page Patterns
+
+### Homepage Pattern
+
+1. Hero section (full height with badge, h1, description, CTAs)
+2. Alternating sections:
+   - content-section (cards explaining services/features)
+   - bg-image-section (visual break with tagline)
+3. Final CTA section
+4. Footer
+
+### Subpage Pattern
+
+1. Page hero (shorter, with section-header inside)
+2. Content sections specific to that page
+3. CTA section
+4. Footer
+
+## Utility Classes Available
+
+- `.mb-1`, `.mb-2`, `.mb-3` - margin bottom
+- `.mt-1`, `.mt-2`, `.mt-3` - margin top
+- `.pt-0` - padding top zero
+- `.text-center` - center text
+- `.text-secondary` - muted text color
+- `.text-accent` - accent color text
+- `.flex-center` - centered flex container
+- `.container-narrow` - max-width 800px
+- `.services-grid-3col` - 3-column grid variant
+- `.reveal` - scroll reveal animation (add to cards)
+
+## Icons
+
+Use Lucide icons via data-lucide attribute:
+```html
+<i data-lucide="icon-name" class="lucide-icon"></i>
+```
+
+Common icons: phone-call, mail, globe, server, shield-check, zap, container,
+layers, cpu, lock, inbox, code, users, building, briefcase, plus-circle,
+cloud, feather, puzzle, rocket, palette, git-branch, bot, gauge, headset,
+piggy-bank, user, phone, smartphone, clock, link
+
+## Responsive Behavior
+
+- Mobile (<600px): Single column, edge-to-edge cards, hamburger menu
+- Tablet (600-1023px): 2-column grids, rounded cards, horizontal nav
+- Desktop (1024px+): 4-column grids, fixed background images
+
+## JavaScript Features
+
+- Theme toggle with localStorage persistence
+- Floating particle animation
+- Navbar scroll effect (adds .scrolled class)
+- Sliding nav indicator on hover
+- Mobile menu toggle
+- Scroll reveal animations (.reveal → .reveal.active)
+- Dynamic year in footer
+
+## Files to Create for New Site
+
+1. Copy base.css unchanged
+2. Create site.css from site.tpl.css template
+3. Copy base.js unchanged, create site.js if needed for custom functionality
+4. Create ai.txt with site content
+5. Create site.txt with customizations
+6. Generate HTML pages from this spec + site.txt + ai.txt

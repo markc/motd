@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MOTD Pricing - Free tier with 1 message per day using Haiku. Standard and Pro tiers with Opus 4.5 for power users.">
+    <title>Pricing | MOTD</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="../site.css">
+    <script src="https://unpkg.com/lucide@0.562.0/dist/umd/lucide.min.js"></script>
+    <script>(function(){var s=JSON.parse(localStorage.getItem('base-state')||'{}'),t=s.theme,c=s.scheme,h=document.documentElement;h.className='preload '+(t||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'))+(c&&c!=='default'&&c!=='crimson'?' scheme-'+c:'');})()</script>
+</head>
+<body>
+<div class="particles" id="particles"></div>
+
+<nav class="topnav">
+    <button class="menu-toggle" data-sidebar="left"><i data-lucide="menu"></i></button>
+    <h1><a class="brand" href="../">Message Of The <span>Day</span></a></h1>
+    <button class="menu-toggle" data-sidebar="right"><i data-lucide="menu"></i></button>
+</nav>
+
+<aside class="sidebar sidebar-left">
+    <div class="sidebar-header">
+        <span><i data-lucide="compass"></i> Navigate</span>
+        <button class="pin-toggle" data-sidebar="left" title="Pin sidebar"><i data-lucide="pin"></i></button>
+    </div>
+    <nav>
+        <a href="../" data-icon="home"><i data-lucide="home"></i> Home</a>
+        <a href="../how-it-works/" data-icon="info"><i data-lucide="info"></i> How It Works</a>
+        <a href="../pricing/" class="active" data-icon="credit-card"><i data-lucide="credit-card"></i> Pricing</a>
+        <div class="sidebar-divider"></div>
+        <a href="mailto:ai@motd.com" data-icon="mail"><i data-lucide="mail"></i> ai@motd.com</a>
+    </nav>
+</aside>
+
+<aside class="sidebar sidebar-right">
+    <div class="sidebar-header">
+        <span><i data-lucide="palette"></i> Theme</span>
+        <button class="pin-toggle" data-sidebar="right" title="Pin sidebar"><i data-lucide="pin"></i></button>
+    </div>
+    <nav>
+        <a href="#" data-scheme="crimson" data-icon="flame"><i data-lucide="flame"></i> Crimson</a>
+        <a href="#" data-scheme="stone" data-icon="circle"><i data-lucide="circle"></i> Stone</a>
+        <a href="#" data-scheme="ocean" data-icon="waves"><i data-lucide="waves"></i> Ocean</a>
+        <a href="#" data-scheme="forest" data-icon="trees"><i data-lucide="trees"></i> Forest</a>
+        <a href="#" data-scheme="sunset" data-icon="sunset"><i data-lucide="sunset"></i> Sunset</a>
+        <div class="sidebar-divider"></div>
+        <a href="#" onclick="Base.toggleTheme();return false" data-icon="moon"><i data-lucide="moon"></i> Toggle Theme</a>
+    </nav>
+</aside>
+
+<main id="content">
+    <section class="hero hero-bg page-hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i data-lucide="credit-card" style="width:16px;height:16px"></i>
+                <span>Simple Pricing</span>
+            </div>
+            <h1>
+                <span class="gradient-text">Choose</span> Your Plan
+            </h1>
+            <p>Start free. Upgrade when you need more power.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="content-section">
+        <div class="pricing-tables-grid pricing-tables-3col">
+            <div class="pricing-table reveal">
+                <div class="pricing-table-header">
+                    <i data-lucide="gift" style="width:20px;height:20px;vertical-align:middle;margin-right:8px"></i>
+                    Free
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Price</strong></span>
+                    <span>$0/month</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Messages</strong></span>
+                    <span>1/day</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Prompt Limit</strong></span>
+                    <span>200 words</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Attachments</strong></span>
+                    <span>—</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>AI Model</strong></span>
+                    <span>Claude Haiku</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Response Time</strong></span>
+                    <span>5-15 seconds</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Webmail Access</strong></span>
+                    <span>—</span>
+                </div>
+                <div style="padding: 1.5rem; text-align: center;">
+                    <a href="mailto:admin@motd.com?subject=Free%20Signup&body=I'd like to sign up for MOTD Free.%0A%0AMy email address: " class="cta-btn primary" style="width: 100%; justify-content: center;">
+                        <i data-lucide="user-plus" class="lucide-icon"></i> Sign Up Free
+                    </a>
+                </div>
+            </div>
+
+            <div class="pricing-table reveal">
+                <div class="pricing-table-header">
+                    <i data-lucide="zap" style="width:20px;height:20px;vertical-align:middle;margin-right:8px"></i>
+                    Standard
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Price</strong></span>
+                    <span>$49/mo or $399/yr</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Messages</strong></span>
+                    <span>20/day</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Prompt Limit</strong></span>
+                    <span>Unlimited</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Attachments</strong></span>
+                    <span>Up to 200KB</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>AI Model</strong></span>
+                    <span>Claude Opus 4.5</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Response Time</strong></span>
+                    <span>2-min delay</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Webmail Access</strong></span>
+                    <span>Included</span>
+                </div>
+                <div style="padding: 1.5rem; text-align: center;">
+                    <a href="mailto:admin@motd.com?subject=Standard%20Signup&body=I'd like to sign up for MOTD Standard.%0A%0AMy email address: " class="cta-btn primary" style="width: 100%; justify-content: center;">
+                        <i data-lucide="sparkles" class="lucide-icon"></i> Get Standard
+                    </a>
+                </div>
+            </div>
+
+            <div class="pricing-table reveal">
+                <div class="pricing-table-header">
+                    <i data-lucide="star" style="width:20px;height:20px;vertical-align:middle;margin-right:8px"></i>
+                    Pro
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Price</strong></span>
+                    <span>$149/mo or $1,199/yr</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Messages</strong></span>
+                    <span>100/day</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Prompt Limit</strong></span>
+                    <span>Unlimited</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Attachments</strong></span>
+                    <span>Up to 200KB</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>AI Model</strong></span>
+                    <span>Claude Opus 4.5</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Response Time</strong></span>
+                    <span>Instant</span>
+                </div>
+                <div class="pricing-table-row">
+                    <span><strong>Webmail Access</strong></span>
+                    <span>Included + Priority</span>
+                </div>
+                <div style="padding: 1.5rem; text-align: center;">
+                    <a href="mailto:admin@motd.com?subject=Pro%20Signup&body=I'd like to sign up for MOTD Pro.%0A%0AMy email address: " class="cta-btn primary" style="width: 100%; justify-content: center;">
+                        <i data-lucide="rocket" class="lucide-icon"></i> Get Pro
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Comparison -->
+    <section class="bg-image-section">
+        <div class="section-header">
+            <span class="section-tag">AI Models</span>
+            <h2 class="section-title">Haiku vs Opus 4.5</h2>
+            <p class="section-subtitle">Choose the right model for your needs</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="services-grid services-grid-2col">
+            <div class="service-card reveal">
+                <span class="service-icon"><i data-lucide="zap" class="lucide-icon"></i></span>
+                <h3>Claude Haiku</h3>
+                <ul>
+                    <li>Fast responses (5-15 seconds)</li>
+                    <li>Great for quick questions</li>
+                    <li>Conversions, facts, lookups</li>
+                    <li>Simple writing tasks</li>
+                </ul>
+                <p style="color: var(--fg-muted); margin-top: 1rem; font-size: var(--text-sm);">Included with Free tier.</p>
+            </div>
+            <div class="service-card reveal">
+                <span class="service-icon"><i data-lucide="brain" class="lucide-icon"></i></span>
+                <h3>Claude Opus 4.5</h3>
+                <ul>
+                    <li>Most capable AI model</li>
+                    <li>Deep analysis & reasoning</li>
+                    <li>Complex coding assistance</li>
+                    <li>Nuanced, detailed responses</li>
+                </ul>
+                <p style="color: var(--fg-muted); margin-top: 1rem; font-size: var(--text-sm);">Included with Standard and Pro tiers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="bg-image-section">
+        <div class="section-header">
+            <span class="section-tag">Paid Features</span>
+            <h2 class="section-title">What You Get</h2>
+            <p class="section-subtitle">Everything you need for serious AI assistance</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <span class="service-icon"><i data-lucide="file-text" class="lucide-icon"></i></span>
+                <h3>Attachment Support</h3>
+                <ul>
+                    <li>PDFs, images, text files</li>
+                    <li>Up to 200KB per file</li>
+                    <li>Document analysis</li>
+                    <li>Image understanding</li>
+                </ul>
+            </div>
+            <div class="service-card reveal">
+                <span class="service-icon"><i data-lucide="key" class="lucide-icon"></i></span>
+                <h3>Personal Token</h3>
+                <ul>
+                    <li>Your own address</li>
+                    <li>Rotatable PIN</li>
+                    <li>Sender verification</li>
+                    <li>Secure by design</li>
+                </ul>
+            </div>
+            <div class="service-card reveal">
+                <span class="service-icon"><i data-lucide="history" class="lucide-icon"></i></span>
+                <h3>Full History</h3>
+                <ul>
+                    <li>Configurable retention</li>
+                    <li>Context across sessions</li>
+                    <li>Searchable archive</li>
+                    <li>Export anytime</li>
+                </ul>
+            </div>
+            <div class="service-card reveal">
+                <span class="service-icon"><i data-lucide="mail-open" class="lucide-icon"></i></span>
+                <h3>Webmail Access</h3>
+                <ul>
+                    <li>Browser interface</li>
+                    <li>View all conversations</li>
+                    <li>Standard IMAP</li>
+                    <li>Works anywhere</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-image-section">
+        <div class="section-header">
+            <span class="section-tag">Questions</span>
+            <h2 class="section-title">Frequently Asked</h2>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="services-grid services-grid-2col">
+            <div class="service-card reveal">
+                <h3>Why the 2-minute delay on Standard?</h3>
+                <p style="color: var(--fg-secondary);">The delay helps manage server load and ensures Pro users always get priority processing. You still get the full power of Opus 4.5.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>How do I pay?</h3>
+                <p style="color: var(--fg-secondary);">Email admin@motd.com to set up your account. We'll send you a payment link and provision your token address once payment is confirmed.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Can I cancel anytime?</h3>
+                <p style="color: var(--fg-secondary);">Yes. Your access continues until the end of your billing period. No questions asked, no hoops to jump through.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Is there a refund policy?</h3>
+                <p style="color: var(--fg-secondary);">If you're not satisfied within the first 14 days, we'll refund your payment in full. Try it risk-free.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-image-section">
+        <div class="section-header">
+            <span class="section-tag">Get Started</span>
+            <h2 class="section-title">Ready to Try?</h2>
+            <p class="section-subtitle">Sign up free and send your first message today</p>
+            <div class="flex-center mt-2">
+                <a href="mailto:admin@motd.com?subject=Free%20Signup&body=I'd like to sign up for MOTD Free." class="cta-btn primary"><i data-lucide="user-plus" class="lucide-icon"></i> Sign Up Free</a>
+                <a href="../how-it-works/" class="cta-btn secondary"><i data-lucide="info" class="lucide-icon"></i> How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-main">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand"><span>MOTD</span></div>
+                <p>Message Of The Day</p>
+                <p>AI assistant via email</p>
+            </div>
+            <div class="footer-col">
+                <h4><i data-lucide="mail" class="lucide-icon"></i> Get Started</h4>
+                <div class="contact-line">
+                    <i data-lucide="user-plus" class="lucide-icon"></i>
+                    <a href="mailto:admin@motd.com?subject=Free%20Signup">Sign up free</a>
+                </div>
+                <div class="contact-line">
+                    <i data-lucide="send" class="lucide-icon"></i>
+                    <a href="mailto:ai@motd.com">ai@motd.com</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4><i data-lucide="link" class="lucide-icon"></i> Quick Links</h4>
+                <div class="contact-line">
+                    <i data-lucide="info" class="lucide-icon"></i>
+                    <a href="../how-it-works/">How It Works</a>
+                </div>
+                <div class="contact-line">
+                    <i data-lucide="credit-card" class="lucide-icon"></i>
+                    <a href="../pricing/">Pricing</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4><i data-lucide="globe" class="lucide-icon"></i> Resources</h4>
+                <div class="contact-line">
+                    <i data-lucide="mail" class="lucide-icon"></i>
+                    <a href="https://mail.motd.com" target="_blank">Webmail</a>
+                </div>
+                <div class="contact-line">
+                    <i data-lucide="shield" class="lucide-icon"></i>
+                    <a href="../privacy/">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            © <span id="year"></span> MOTD. Message Of The Day.
+        </div>
+    </footer>
+</main>
+
+<div class="overlay"></div>
+<script src="../base.js"></script>
+<script src="../site.js"></script>
+</body>
+</html>
